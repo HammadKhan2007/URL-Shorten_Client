@@ -12,8 +12,8 @@ const App = () => {
     const [loading, setLoading] = useState(false); // To show loading state
 
     // Backend API ka base URL
-    const API_BASE_URL = 'http://localhost:5000/api'; // Dhyan dein /api prefix par
-    const REDIRECT_BASE_URL = 'http://localhost:5000'; // Redirect URLs ke liye base
+    const API_BASE_URL = 'https://urlshortenbackend-production.up.railway.app/api'; // Dhyan dein /api prefix par
+    const REDIRECT_BASE_URL = 'https://urlshortenbackend-production.up.railway.app'; // Redirect URLs ke liye base
 
     // Component load hone par saare URLs fetch karein
     useEffect(() => {
