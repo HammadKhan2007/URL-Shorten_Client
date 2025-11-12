@@ -1,19 +1,19 @@
 :root {
-    --primary-blue: #1e3a8a; /* Dark blue for header/main elements */
-    --light-blue: #3b82f6; /* Lighter blue for buttons/links */
-    --dark-bg: #111827; /* Dark background color */
-    --text-color: #e5e7eb; /* Light text color for dark backgrounds */
-    --panel-bg: #ffffff; /* White background for panels */
-    --panel-text: #374151; /* Dark text for white panels */
+    --primary-blue: #1e3a8a;
+    --light-blue: #3b82f6;
+    --dark-bg: #111827;
+    --text-color: #e5e7eb;
+    --panel-bg: #ffffff;
+    --panel-text: #374151;
     --border-color: #e5e7eb;
     --input-border: #d1d5db;
     --button-hover: #1d4ed8;
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* A modern font */
+    font-family: 'Inter', sans-serif;
     margin: 0;
-    background-color: var(--dark-bg); /* Dark overall background */
+    background-color: var(--dark-bg);
     color: var(--text-color);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -26,7 +26,6 @@ body {
     padding: 20px;
 }
 
-/* Header */
 .header {
     display: flex;
     justify-content: space-between;
@@ -83,17 +82,16 @@ body {
     background-color: var(--button-hover);
 }
 
-/* Main Content Area */
 .main-content {
     display: flex;
     gap: 40px;
     margin-bottom: 50px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 .left-panel {
     flex: 3;
-    min-width: 300px; /* Ensure it doesn't get too small */
+    min-width: 300px;
 }
 
 .left-panel h1 {
@@ -101,7 +99,7 @@ body {
     font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.1;
-    color: white; /* Make heading bright */
+    color: white;
 }
 
 .left-panel p {
@@ -131,7 +129,7 @@ body {
 }
 
 .action-buttons .view-plans:hover {
-    background-color: rgba(59, 130, 246, 0.1); /* Light blue transparent */
+    background-color: rgba(59, 130, 246, 0.1);
 }
 
 .action-buttons .create-free-account {
@@ -150,7 +148,7 @@ body {
     padding: 30px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     color: var(--panel-text);
-    min-width: 350px; /* Ensure panel is readable */
+    min-width: 350px;
 }
 
 .tab-buttons {
@@ -197,12 +195,12 @@ body {
     font-size: 16px;
     color: var(--panel-text);
     background-color: #f9fafb;
-    margin-bottom: 20px; /* Space after inputs */
-    box-sizing: border-box; /* Include padding in width */
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .shorten-form select {
-    appearance: none; /* Remove default arrow */
+    appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
@@ -217,9 +215,9 @@ body {
 }
 
 .domain-alias select {
-    width: 150px; /* Fixed width for domain */
+    width: 150px;
     margin-right: 10px;
-    margin-bottom: 0; /* Override default margin */
+    margin-bottom: 0;
 }
 
 .domain-alias .slash {
@@ -229,20 +227,20 @@ body {
 }
 
 .domain-alias input {
-    flex-grow: 1; /* Alias input takes remaining space */
-    margin-bottom: 0; /* Override default margin */
+    flex-grow: 1;
+    margin-bottom: 0;
 }
 
 
 .alias-note {
     font-size: 12px;
     color: #6b7280;
-    margin-top: -10px; /* Pull closer to input */
+    margin-top: -10px;
     margin-bottom: 20px;
 }
 
-.generate-qr-button { /* Re-using this name for 'Shorten Link' button */
-    background-color: #10b981; /* Green color for action */
+.generate-qr-button {
+    background-color: #10b981;
     color: white;
     padding: 15px 25px;
     border: none;
@@ -266,7 +264,6 @@ body {
     text-align: center;
 }
 
-/* Recent Links Section */
 .recent-links-section {
     background-color: var(--panel-bg);
     border-radius: 10px;
@@ -294,7 +291,7 @@ body {
     align-items: center;
     padding: 15px 0;
     border-bottom: 1px solid var(--border-color);
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-wrap: wrap;
 }
 
 .recent-links-section li:last-child {
@@ -302,9 +299,9 @@ body {
 }
 
 .link-info {
-    flex-basis: 60%; /* Take up more space */
+    flex-basis: 60%;
     min-width: 250px;
-    margin-bottom: 10px; /* Space on small screens */
+    margin-bottom: 10px;
 }
 
 .link-info p {
@@ -327,13 +324,13 @@ body {
 .link-actions {
     display: flex;
     gap: 10px;
-    flex-basis: 40%; /* Take remaining space */
-    justify-content: flex-end; /* Align buttons to the right */
+    flex-basis: 40%;
+    justify-content: flex-end;
 }
 
 .action-button {
-    background-color: #e5e7eb; /* Light gray */
-    color: #4b5563; /* Darker gray text */
+    background-color: #e5e7eb;
+    color: #4b5563;
     padding: 8px 15px;
     border: none;
     border-radius: 5px;
@@ -347,7 +344,6 @@ body {
     color: #1f2937;
 }
 
-/* Popups for results/errors */
 .result-popup, .error-popup {
     position: fixed;
     top: 50%;
@@ -408,7 +404,6 @@ body {
 }
 
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .main-content {
         flex-direction: column;

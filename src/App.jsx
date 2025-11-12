@@ -9,20 +9,16 @@ const App = () => {
     const [qrCode, setQrCode] = useState(null);
     const [error, setError] = useState('');
     const [allUrls, setAllUrls] = useState([]);
-    const [loading, setLoading] = useState(false); // To show loading state
-
-    // Backend API ka base URL
-    const API_BASE_URL = 'https://urlshortenbackend-production.up.railway.app/api'; // Dhyan dein /api prefix par
-    const REDIRECT_BASE_URL = 'https://urlshortenbackend-production.up.railway.app'; // Redirect URLs ke liye base
-
-    // Component load hone par saare URLs fetch karein
+    const [loading, setLoading] = useState(false); 
+    const API_BASE_URL = 'https://urlshortenbackend-production.up.railway.app/api';
+    const REDIRECT_BASE_URL = 'https://urlshortenbackend-production.up.railway.app';
     useEffect(() => {
         fetchUrls();
     }, []);
 
     const fetchUrls = async () => {
         try {
-            const response = await axios.get(`${API_BASE_URL}/urls`); // Backend route /api/urls
+            const response = await axios.get(`${API_BASE_URL}/urls`);
             setAllUrls(response.data);
         } catch (err) {
             console.error('Error fetching URLs:', err);
@@ -40,16 +36,14 @@ const App = () => {
         try {
             const response = await axios.post(`${API_BASE_URL}/shorten`, {
                 longUrl,
-                customAlias: customAlias || undefined, // Sirf tab bhejein jab custom alias ho
+                customAlias: customAlias || undefined,
             });
-            // Backend se aane wala data { longUrl, shortUrl, urlCode, date, clicks } hoga
             setShortenedUrl(response.data);
             setLongUrl('');
             setCustomAlias('');
-            fetchUrls(); // Naya URL shorten hone ke baad list refresh karein
+            fetchUrls();
         } catch (err) {
             console.error('Error shortening URL:', err);
-            // Error message backend se lein
             setError(err.response?.data?.error || 'Something went wrong while shortening the URL.');
         } finally {
             setLoading(false);
@@ -57,7 +51,7 @@ const App = () => {
     };
 
     const handleGenerateQrCode = async (url) => {
-        setQrCode(null); // Clear previous QR
+        setQrCode(null);
         try {
             const response = await axios.post(`${API_BASE_URL}/qrcode`, { shortUrl: url });
             setQrCode(response.data.qrCode);
@@ -67,12 +61,10 @@ const App = () => {
         }
     };
 
-    // `Visit URL` button ke liye
     const handleVisitUrl = (shortUrl) => {
-        window.open(shortUrl, '_blank'); // Naye tab mein open karein
+        window.open(shortUrl, '_blank');
     };
 
-    // `Copy` button ke liye
     const handleCopyUrl = (urlToCopy) => {
         navigator.clipboard.writeText(urlToCopy)
             .then(() => alert('URL copied to clipboard!'))
@@ -109,7 +101,6 @@ const App = () => {
                 <div className="right-panel">
                     <div className="tab-buttons">
                         <button className="tab active">Shorten a Link</button>
-                        {/* <button className="tab">Generate QR Code</button> */}
                     </div>
                     <form onSubmit={handleSubmit} className="shorten-form">
                         <label htmlFor="destination-url">Destination URL *</label>
@@ -123,7 +114,7 @@ const App = () => {
                         />
                         <div className="domain-alias">
                             <label htmlFor="domain">Domain</label>
-                            <select id="domain" disabled> {/* Abhi ke liye disabled, baad mein custom domain option add kar sakte hain */}
+                            <select id="domain" disabled>
                                 <option value="localhost:5000">localhost:5000</option>
                             </select>
                             <span className="slash">/</span>
@@ -132,7 +123,7 @@ const App = () => {
                                 placeholder="Add alias here (optional)"
                                 value={customAlias}
                                 onChange={(e) => setCustomAlias(e.target.value)}
-                                minLength="5" // Frontend validation for custom alias
+                                minLength="5"
                             />
                         </div>
                         <p className="alias-note">Must be at least 5 characters if custom alias is used.</p>
@@ -171,7 +162,6 @@ const App = () => {
                 )}
             </section>
 
-            {/* Popup for shortened URL result */}
             {shortenedUrl && (
                 <div className="result-popup">
                     <h3>Link Shortened!</h3>
@@ -183,7 +173,6 @@ const App = () => {
                     <button onClick={() => { setShortenedUrl(null); setQrCode(null); }}>Close</button>
                 </div>
             )}
-            {/* Popup for error messages */}
             {error && <div className="error-popup">{error} <button onClick={() => setError('')}>Close</button></div>}
         </div>
     );
